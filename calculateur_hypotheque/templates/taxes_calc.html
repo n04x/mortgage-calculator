@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Taxes calculator homepage</h1>
+<form action="/tax_calculate/" method="POST">{% csrf_token %}
+    <h3>Evaluation Municipale:</h3>
+    <input type="text" name="value" />
+    <h3>Ville:</h3>
+    <input type="text" name="city" />
+    <br />    
+    <br />    
+    <input type="submit" value="Calculez" />
+
+</form>
+<p>Ville choisi: {{ city_name }}</p>
+<p>Taxation: {{ city_taxe }}</p>
+<p>Taxe du: {{ cost }}</p>
+
+{% endblock %}

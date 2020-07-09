@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Calculateur d'hypotheque</h1>
+<p>Bienvenue sur la page du Calculateur d'hypotheque</p>
+<h2>Contenu dynamique</h2>
+<p>Villes avec information de taxes:</p>
+<ol>
+    {% for cities_taxes in all_cities %}
+    <li>{{ cities_taxes.city_name }}</li>
+    {% endfor %}
+</ol>
+
+
+{% endblock %}

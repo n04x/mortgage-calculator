@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>SCHL Assurance - CMHC Insurance</h1>
+<form action="/calculateInsurance/" method="POST">{% csrf_token %}
+    <h3>Prix de la maison: </h3>
+    <input type="text" name="houseprice" />
+    <!-- <h3>Montant du "cashdown"</h3>
+    <input type="text" name="cashdown" /> -->
+    <br />
+    <br />
+    <input type="submit" value="Calculez" />
+</form>
+<p>Prix de l'assurance:
+    {% for r in result %}
+    {{ r }} <br />
+    {% endfor %}
+</p>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Calculateur d'hypotheque</h1>
+<form action="/calculate/" method="POST">{% csrf_token %}
+    <h3>Prix de la maison: </h3>
+    <input type="text" name="houseprice" />
+    <h3>Montant du "cashdown"</h3>
+    <input type="text" name="cashdown" />
+    <h3>Taux d'hypotheque:</h3>
+    <input type="text" name="rate" />
+    <br />
+    <br />
+    <input type="submit" value="Calculez" />
+</form>
+<p>Hypotheque mensuel: {{ monthly }}</p>
+<h1>Taux d'hypotheque courant:</h1>
+<!-- Display current Canadian mortgage rate widget -->
+<a href="https://www.superbrokers.ca/tools/mortgage-rates-comparison/"><img sequence="0" fromgallery="true" src="https://www.superbrokers.ca/cgi-bin/currentrates.cgi" height="225" width="152" border="0" alt="Canadian Mortgage Rates"></a>
+
+
+<a href="http://www.superbrokers.ca" target="_blank"><img sequence="0" fromgallery="true" src="http://www.sidepix.com/mortgage_rates/currentrates.cgi?09" height="240" width="150" border="0" alt="Best mortgage rates in Canada"></a>
+<br />
+<!-- End current Canadian mortgage rate widget -->
+<h1>Plus bas taux d'hypotheque par RateSpy:</h1>
+<iframe style="border:2px solid #DFDFDF; border-radius:8px;width:300px; height:250px; " src="https://www.ratespy.com/create-widget-v2.php?if=true&size=300x250&bgcolor=ffffff&ratecolor=000080&ratetextcolor=fff&providercolor=000000" scrolling="no"></iframe>
+{% endblock %}

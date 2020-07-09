@@ -1,0 +1,17 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+    font-weight: bold;
+}
+
+.city-div {
+    margin-top: 10px;
+    border: 5px outset blue;
+    background-color: lightblue;    
+    text-align: left;
+}
+
+div b{
+    margin-left: 5px;
+}

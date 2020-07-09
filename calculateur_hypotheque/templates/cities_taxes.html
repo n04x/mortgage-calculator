@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Taxes Municipale par Ville</h1>
+<p>Recherche de ville:</p>
+<form action="/search/" method="POST">{% csrf_token %}
+  <input type="text" name="city">
+  <button type="submit">Rechercher</button>
+</form>
+<div class="city-div">
+    <h2>Liste des villes</h2>
+    {% for cities_taxes in all_cities %}
+    <b>Nom de ville</b>: {{ cities_taxes.city_name }}</li>
+    <ul>
+        <li>Taxe municipal: {{ cities_taxes.city_taxe }} par tranche de 100.00$</li>
+        <li>Taxe scolaire: {{ cities_taxes.city_school_taxe }} par tranche de 100.00$</li>
+        <!-- <li>Taxe d'eau: {{ cities_taxes.city_water_taxe }}$</li> -->
+    </ul>
+    {% endfor %}
+</div>
+
+<button id="calculator">Calculateur d'hypotheque</button>
+
+<script type="text/javascript">
+    document.getElementById("calculator").onclick = function () {
+        location.href = '/calculator';
+    }
+</script>
+
+{% endblock %}
